@@ -9,5 +9,5 @@ function combine(input1, input2) {
 }
 var combinedAdges = combine(30, 25);
 console.log(combinedAdges);
-var combinedNames = combine('andre', 'max');
+var combinedNames = combine('andre', 'mag');
 console.log(combinedNames);
