@@ -1,14 +1,14 @@
-// function add(n1, n2) {
-//   return n1 + n2
-// }
-// const number1 = 3
-// const number2 = 2.6
-// const result = add(number1, number2)
-// console.log(result)
-function add(n1, n2) {
-    return n1 + n2;
+function add(n1, n2, showResult, phrase) {
+    var result = n1 + n2;
+    if (showResult == true) {
+        console.log(phrase + result);
+    }
+    else {
+        return result;
+    }
 }
-var number1 = '5';
+var number1 = 5;
 var number2 = 2.6;
-var result = add(number1, number2);
-console.log(result);
+var showResult = true;
+var resultphrase = 'result is: ';
+add(number1, number2, showResult, resultphrase);
