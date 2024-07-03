@@ -1,15 +1,18 @@
-function add(n1: number, n2: number, showResult: boolean, phrase: string) {
-  const result = n1 + n2
-  if (showResult == true) {
-    console.log(phrase + result)
-  } else {
-    return result
-  }
+//object
+
+const person = {
+  name: 'Andreea',
+  age: 21,
+  hobbies: ['f1', 'cubing'],
 }
+//with any type we can add any type of data in the array
+// but is not ok to use it because we lose the type checking
 
-const number1 = 5
-const number2 = 2.6
-const showResult = true
-const resultphrase = 'result is: '
+let favActivites: string[]
+favActivites = ['f1']
 
-add(number1, number2, showResult, resultphrase)
+console.log(person.name)
+
+for (const hobby of person.hobbies) {
+  console.log(hobby)
+}
