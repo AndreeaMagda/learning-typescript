@@ -1,18 +1,27 @@
 "use strict";
-//arrow functions
-// const addNumb = (a: number, b: number) => a + b
-// const printOutput: (a: number | string) => void = (output) =>
-//   console.log(output)
-// const button = document.querySelector('button')
-// if (button) {
-//   button.addEventListener('click', (event) => console.log(event))
-// }
-// printOutput(addNumb(5, 2))
-//rest parameters
-const addNumbers = (...numbers) => {
-    return numbers.reduce((curResult, curValue) => {
-        return curResult + curValue;
-    }, 0);
-};
-const addedNumbers = addNumbers(5, 2, 8, 7, 2, 8);
-console.log(addedNumbers);
+class Team {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+        //   private readonly id: string
+        //   private name: string
+        this.drivers = [];
+        // this.name = n
+    }
+    describe() {
+        console.log(`Team (${this.id}): (${this.name})`);
+    }
+    addDriver(driver) {
+        this.drivers.push(driver);
+    }
+    printDriverInfo() {
+        console.log(this.drivers.length);
+        console.log(this.drivers);
+    }
+}
+const ferrari = new Team('t1', 'Ferrari');
+ferrari.addDriver('Charles');
+ferrari.addDriver('Carlos');
+//ferrari.drivers[2] = 'Hamilton' --error
+ferrari.describe();
+ferrari.printDriverInfo();

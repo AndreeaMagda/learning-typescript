@@ -1,25 +1,31 @@
-//arrow functions
+class Team {
+  //   private readonly id: string
+  //   private name: string
+  private drivers: string[] = []
 
-// const addNumb = (a: number, b: number) => a + b
+  constructor(private readonly id: string, public name: string) {
+    // this.name = n
+  }
+  describe() {
+    console.log(`Team (${this.id}): (${this.name})`)
+  }
 
-// const printOutput: (a: number | string) => void = (output) =>
-//   console.log(output)
+  addDriver(driver: string) {
+    this.drivers.push(driver)
+  }
 
-// const button = document.querySelector('button')
-
-// if (button) {
-//   button.addEventListener('click', (event) => console.log(event))
-// }
-
-// printOutput(addNumb(5, 2))
-
-//rest parameters
-
-const addNumbers = (...numbers: number[]) => {
-  return numbers.reduce((curResult, curValue) => {
-    return curResult + curValue
-  }, 0)
+  printDriverInfo() {
+    console.log(this.drivers.length)
+    console.log(this.drivers)
+  }
 }
 
-const addedNumbers = addNumbers(5, 2, 8, 7, 2, 8)
-console.log(addedNumbers)
+const ferrari = new Team('t1', 'Ferrari')
+
+ferrari.addDriver('Charles')
+ferrari.addDriver('Carlos')
+
+//ferrari.drivers[2] = 'Hamilton' --error
+
+ferrari.describe()
+ferrari.printDriverInfo()
