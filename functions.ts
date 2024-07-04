@@ -8,8 +8,10 @@ function printResult(num: number): void {
 
 printResult(add_fc(2, 32))
 
-let combineValues
+//whatever we store here, has to be a function that takes two numbers and returns a number
+let combineValues: (a: number, b: number) => number
 
 combineValues = add_fc
+//combineValues=printResult -ERROR
 
 console.log(combineValues(45, 8))
