@@ -33,3 +33,34 @@ class Person {
 const pers = new Person()
 
 console.log(pers)
+
+//--
+//if you add a decorator to a property
+//the decorator function will receive two arguments
+//the target and the property name
+function Log(target: any, propertyName: string | Symbol) {
+  console.log('Property decorator')
+  console.log(target, propertyName)
+}
+
+class Product {
+  @Log
+  title: string
+  private _price: number
+
+  public set price(val: number) {
+    if (val > 0) {
+      this._price = val
+    } else {
+      throw new Error('invalid price')
+    }
+  }
+
+  constructor(t: string, p: number) {
+    this.title = t
+    this._price = p
+  }
+  getPriceWithTax(tax: number) {
+    return this._price * (1 + tax)
+  }
+}
