@@ -1,31 +1,77 @@
-class Team {
-  //   private readonly id: string
-  //   private name: string
-  private drivers: string[] = []
+class Department {
+  // private readonly id: string;
+  // private name: string;
+  protected employees: string[] = []
 
   constructor(private readonly id: string, public name: string) {
-    // this.name = n
-  }
-  describe() {
-    console.log(`Team (${this.id}): (${this.name})`)
+    // this.id = id;
+    // this.name = n;
   }
 
-  addDriver(driver: string) {
-    this.drivers.push(driver)
+  describe(this: Department) {
+    console.log(`Department (${this.id}): ${this.name}`)
   }
 
-  printDriverInfo() {
-    console.log(this.drivers.length)
-    console.log(this.drivers)
+  addEmployee(employee: string) {
+    // validation etc
+    // this.id = 'd2';
+    this.employees.push(employee)
+  }
+
+  printEmployeeInformation() {
+    console.log(this.employees.length)
+    console.log(this.employees)
   }
 }
 
-const ferrari = new Team('t1', 'Ferrari')
+class ITDepartment extends Department {
+  admins: string[]
+  constructor(id: string, admins: string[]) {
+    super(id, 'IT')
+    this.admins = admins
+  }
+}
 
-ferrari.addDriver('Charles')
-ferrari.addDriver('Carlos')
+class AccountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    super(id, 'Accounting')
+  }
 
-//ferrari.drivers[2] = 'Hamilton' --error
+  addEmployee(name: string) {
+    if (name === 'Carlos') {
+      return
+    }
+    this.employees.push(name)
+  }
 
-ferrari.describe()
-ferrari.printDriverInfo()
+  addReport(text: string) {
+    this.reports.push(text)
+  }
+
+  printReports() {
+    console.log(this.reports)
+  }
+}
+
+const it = new ITDepartment('d1', ['Max'])
+
+it.addEmployee('Max')
+it.addEmployee('Lando')
+
+// it.employees[2] = 'Anna';
+
+it.describe()
+it.name = 'NEW NAME'
+it.printEmployeeInformation()
+
+console.log(it)
+
+const accounting = new AccountingDepartment('d2', [])
+
+accounting.addReport('Something went wrong...')
+
+accounting.addEmployee('Max')
+accounting.addEmployee('Carlos')
+
+accounting.printReports()
+accounting.printEmployeeInformation()
