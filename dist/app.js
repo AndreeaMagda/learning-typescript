@@ -1,78 +1,22 @@
 "use strict";
-class Department {
-    constructor(id, name) {
-        this.id = id;
-        this.name = name;
-        // private readonly id: string;
-        // private name: string;
-        this.employees = [];
-        // this.id = id;
-        // this.name = n;
-    }
-    describe() {
-        console.log(`Department (${this.id}): ${this.name}`);
-    }
-    addEmployee(employee) {
-        // validation etc
-        // this.id = 'd2';
-        this.employees.push(employee);
-    }
-    printEmployeeInformation() {
-        console.log(this.employees.length);
-        console.log(this.employees);
-    }
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+function Logger(constructor) {
+    console.log('Logging...');
+    console.log(constructor);
 }
-class ITDepartment extends Department {
-    constructor(id, admins) {
-        super(id, 'IT');
-        this.admins = admins;
+let Person = class Person {
+    constructor() {
+        this.name = 'Charles';
+        console.log('Creating person object...');
     }
-}
-class AccountingDepartment extends Department {
-    get mostRecentReport() {
-        if (this.lastReport) {
-            return this.lastReport;
-        }
-        throw new Error('no report found.');
-    }
-    set mostRcenetReport(value) {
-        if (!value) {
-            throw new Error('please pase in a a valid value');
-        }
-        this.addReport(value);
-    }
-    constructor(id, reports) {
-        super(id, 'Accounting');
-        this.reports = reports;
-        this.lastReport = reports[0];
-    }
-    addEmployee(name) {
-        if (name === 'Carlos') {
-            return;
-        }
-        this.employees.push(name);
-    }
-    addReport(text) {
-        this.reports.push(text);
-        this.lastReport = text;
-    }
-    printReports() {
-        console.log(this.reports);
-    }
-}
-const it = new ITDepartment('d1', ['Max']);
-it.addEmployee('Max');
-it.addEmployee('Lando');
-// it.employees[2] = 'Anna';
-it.describe();
-it.name = 'NEW NAME';
-it.printEmployeeInformation();
-console.log(it);
-const accounting = new AccountingDepartment('d2', []);
-accounting.mostRcenetReport = 'year end';
-accounting.addReport('Something went wrong...');
-console.log(accounting.mostRecentReport);
-accounting.addEmployee('Max');
-accounting.addEmployee('Carlos');
-accounting.printReports();
-accounting.printEmployeeInformation();
+};
+Person = __decorate([
+    Logger
+], Person);
+const pers = new Person();
+console.log(pers);
