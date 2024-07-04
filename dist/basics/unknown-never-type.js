@@ -1,10 +1,11 @@
+"use strict";
 //Unknown is a bit more restrictive than any.
 // With unknown, we have to first of all check
 // the type that's currently stored in userInput
 // before we can assign it to, for example,
 // a variable that wants a string.
-var userInput;
-var username;
+let userInput;
+let username;
 if (typeof userInput === 'string') {
     username = userInput;
 }
